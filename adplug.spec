@@ -1,7 +1,7 @@
 %define name adplug
-%define version 2.0.1
-%define release %mkrel 2
-%define major 2.0.1
+%define version 2.1
+%define release %mkrel 1
+%define major 2.1
 %define libname %mklibname adplug %major
 
 Summary: AdLib sound player library
@@ -125,4 +125,3 @@ rm -rf $RPM_BUILD_ROOT
 %files -n %libname-static-devel
 %defattr(-,root,root)
 %_libdir/*.a
-
