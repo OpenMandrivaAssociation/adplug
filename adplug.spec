@@ -13,7 +13,6 @@ Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
 URL: http://adplug.sourceforge.net/
 License: LGPL
 Group: Sound
-BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libbinio-devel
 BuildRequires: chrpath
 
