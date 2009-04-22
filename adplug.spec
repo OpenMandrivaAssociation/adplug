@@ -10,8 +10,9 @@ Version: %{version}
 Release: %{release}
 Source0: http://prdownloads.sourceforge.net/%name/%{name}-%{version}.tar.bz2
 Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
+Patch: adplug-2.1-missing-headers.patch
 URL: http://adplug.sourceforge.net/
-License: LGPL
+License: LGPLv2+
 Group: Sound
 BuildRoot: %{_tmppath}/%{name}-buildroot
 BuildRequires: libbinio-devel
@@ -76,6 +77,7 @@ linking applications based on AdPlug.
 
 %prep
 %setup -q
+%patch -p1
 perl -pi -e "s!/usr/local/share/adplug!%_datadir/%name!" doc/adplugdb.1
 
 %build
