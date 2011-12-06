@@ -1,6 +1,6 @@
 %define name adplug
 %define version 2.2
-%define release %mkrel 2
+%define release %mkrel 3
 %define api 2.2
 %define major 0
 %define libname %mklibname %name %api %major
