@@ -1,6 +1,6 @@
 %define name adplug
 %define version 2.2
-%define release %mkrel 3
+%define release 3
 %define api 2.2
 %define major 0
 %define libname %mklibname %name %api %major
@@ -16,8 +16,8 @@ Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
 URL: http://adplug.sourceforge.net/
 License: LGPLv2+
 Group: Sound
-BuildRoot: %{_tmppath}/%{name}-buildroot
-BuildRequires: libbinio-devel
+
+BuildRequires: pkgconfig(libbinio)
 BuildRequires: chrpath
 
 %description
@@ -90,14 +90,11 @@ export CPPFLAGS="-I%_includedir/libbinio"
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 mkdir -p %buildroot%_datadir/%name
 bzcat %SOURCE1 > %buildroot%_datadir/%name/adplug.db
 chrpath -d %buildroot%_bindir/adplugdb
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
@@ -112,7 +109,6 @@ rm -rf $RPM_BUILD_ROOT
 %_remove_install_info libadplug.info
 
 %files
-%defattr(-,root,root)
 %doc README
 %_bindir/adplugdb
 %_mandir/man1/adplugdb.1*
@@ -120,18 +116,89 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/%name/adplug.db
 
 %files -n %libname
-%defattr(-,root,root)
 %doc AUTHORS NEWS TODO COPYING
 %_libdir/libadplug-%{api}.so.%{major}*
 
 %files -n %develname
-%defattr(-,root,root)
 %_includedir/adplug/
 %_libdir/*.so
-%attr(644,root,root) %_libdir/*.la
 %_infodir/libadplug.info*
 %_libdir/pkgconfig/*.pc
 
 %files -n %staticname
-%defattr(-,root,root)
 %_libdir/*.a
+
+
+%changelog
+* Tue Dec 06 2011 GÃ¶tz Waschk <waschk@mandriva.org> 2.2-3mdv2012.0
++ Revision: 738093
+- yearly rebuild
+
+* Sun Dec 05 2010 Oden Eriksson <oeriksson@mandriva.com> 2.2-2mdv2011.0
++ Revision: 609907
+- rebuild
+
+* Wed Feb 10 2010 GÃ¶tz Waschk <waschk@mandriva.org> 2.2-1mdv2010.1
++ Revision: 503778
+- new version
+- drop patch
+- new libname
+
+* Fri May 22 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.1-3mdv2010.0
++ Revision: 378725
+- rebuild
+
+* Wed Apr 22 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.1-2mdv2010.0
++ Revision: 368667
+- fix build
+- update license
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild early 2009.0 package (before pixel changes)
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Thu Dec 20 2007 Olivier Blin <blino@mandriva.org> 2.1-1mdv2009.0
++ Revision: 135817
+- restore BuildRoot
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+* Tue Apr 17 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.1-1mdv2008.0
++ Revision: 14053
+- new version
+- new major
+
+
+* Fri Aug 25 2006 Götz Waschk <waschk@mandriva.org> 2.0.1-2mdv2007.0
+- remove rpath
+
+* Mon Jul 17 2006 Götz Waschk <waschk@mandriva.org> 2.0.1-1mdv2007.0
+- new major
+- New release 2.0.1
+
+* Wed Jun 28 2006 Lenny Cartier <lenny@mandriva.com> 2.0-2mdv2007.0
+- rebuild
+
+* Fri May 05 2006 Götz Waschk <waschk@mandriva.org> 2.0-1mdk
+- new major
+- New release 2.0
+- use mkrel
+
+* Mon Sep 19 2005 Götz Waschk <waschk@mandriva.org> 1.5.1-2mdk
+- adapt for new libbinio header location
+
+* Sun May 15 2005 Götz Waschk <waschk@mandriva.org> 1.5.1-1mdk
+- new major
+- New release 1.5.1
+
+* Sat Oct 02 2004 Götz Waschk <waschk@linux-mandrake.com> 1.5-1mdk
+- new major 1.5
+- New release 1.5
+
+* Sat Jun 05 2004 Götz Waschk <waschk@linux-mandrake.com> 1.4.1-4mdk
+- new g++
+- drop prefix
+
