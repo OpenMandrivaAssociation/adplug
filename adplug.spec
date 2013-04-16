@@ -1,6 +1,3 @@
-%define name adplug
-%define version 2.2
-%define release: 5
 %define api 2.2
 %define major 0
 %define libname %mklibname %name %api %major
@@ -8,9 +5,9 @@
 %define staticname %mklibname -s -d %name
 
 Summary: AdLib sound player library
-Name: %{name}
-Version: %{version}
-Release: %{release}
+Name:    adplug
+Version: 2.2
+Release: 5
 Source0: http://prdownloads.sourceforge.net/%name/%{name}-%{version}.tar.bz2
 Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
 URL: http://adplug.sourceforge.net/
