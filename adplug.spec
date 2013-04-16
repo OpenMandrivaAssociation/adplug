@@ -1,6 +1,6 @@
 %define name adplug
 %define version 2.2
-%define release 3
+%define release: 4
 %define api 2.2
 %define major 0
 %define libname %mklibname %name %api %major
@@ -98,9 +98,6 @@ chrpath -d %buildroot%_bindir/adplugdb
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
 %endif
 
 %post -n %develname
