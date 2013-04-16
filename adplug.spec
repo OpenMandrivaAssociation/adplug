@@ -7,7 +7,7 @@
 Summary: AdLib sound player library
 Name:    adplug
 Version: 2.2
-Release: 5
+Release: 6
 Source0: http://prdownloads.sourceforge.net/%name/%{name}-%{version}.tar.bz2
 Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
 URL: http://adplug.sourceforge.net/
@@ -93,15 +93,6 @@ bzcat %SOURCE1 > %buildroot%_datadir/%name/adplug.db
 chrpath -d %buildroot%_bindir/adplugdb
 
 
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-
-%post -n %develname
-%_install_info libadplug.info
-%postun -n %develname
-%_remove_install_info libadplug.info
-
 %files
 %doc README
 %_bindir/adplugdb
@@ -124,7 +115,7 @@ chrpath -d %buildroot%_bindir/adplugdb
 
 
 %changelog
-* Tue Dec 06 2011 Götz Waschk <waschk@mandriva.org> 2.2-3mdv2012.0
+* Tue Dec 06 2011 GÃ¶tz Waschk <waschk@mandriva.org> 2.2-3mdv2012.0
 + Revision: 738093
 - yearly rebuild
 
@@ -132,17 +123,17 @@ chrpath -d %buildroot%_bindir/adplugdb
 + Revision: 609907
 - rebuild
 
-* Wed Feb 10 2010 Götz Waschk <waschk@mandriva.org> 2.2-1mdv2010.1
+* Wed Feb 10 2010 GÃ¶tz Waschk <waschk@mandriva.org> 2.2-1mdv2010.1
 + Revision: 503778
 - new version
 - drop patch
 - new libname
 
-* Fri May 22 2009 Götz Waschk <waschk@mandriva.org> 2.1-3mdv2010.0
+* Fri May 22 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.1-3mdv2010.0
 + Revision: 378725
 - rebuild
 
-* Wed Apr 22 2009 Götz Waschk <waschk@mandriva.org> 2.1-2mdv2010.0
+* Wed Apr 22 2009 GÃ¶tz Waschk <waschk@mandriva.org> 2.1-2mdv2010.0
 + Revision: 368667
 - fix build
 - update license
@@ -160,39 +151,39 @@ chrpath -d %buildroot%_bindir/adplugdb
   + Thierry Vignaud <tv@mandriva.org>
     - kill re-definition of %%buildroot on Pixel's request
 
-* Tue Apr 17 2007 Götz Waschk <waschk@mandriva.org> 2.1-1mdv2008.0
+* Tue Apr 17 2007 GÃ¶tz Waschk <waschk@mandriva.org> 2.1-1mdv2008.0
 + Revision: 14053
 - new version
 - new major
 
 
-* Fri Aug 25 2006 G�tz Waschk <waschk@mandriva.org> 2.0.1-2mdv2007.0
+* Fri Aug 25 2006 Götz Waschk <waschk@mandriva.org> 2.0.1-2mdv2007.0
 - remove rpath
 
-* Mon Jul 17 2006 G�tz Waschk <waschk@mandriva.org> 2.0.1-1mdv2007.0
+* Mon Jul 17 2006 Götz Waschk <waschk@mandriva.org> 2.0.1-1mdv2007.0
 - new major
 - New release 2.0.1
 
 * Wed Jun 28 2006 Lenny Cartier <lenny@mandriva.com> 2.0-2mdv2007.0
 - rebuild
 
-* Fri May 05 2006 G�tz Waschk <waschk@mandriva.org> 2.0-1mdk
+* Fri May 05 2006 Götz Waschk <waschk@mandriva.org> 2.0-1mdk
 - new major
 - New release 2.0
 - use mkrel
 
-* Mon Sep 19 2005 G�tz Waschk <waschk@mandriva.org> 1.5.1-2mdk
+* Mon Sep 19 2005 Götz Waschk <waschk@mandriva.org> 1.5.1-2mdk
 - adapt for new libbinio header location
 
-* Sun May 15 2005 G�tz Waschk <waschk@mandriva.org> 1.5.1-1mdk
+* Sun May 15 2005 Götz Waschk <waschk@mandriva.org> 1.5.1-1mdk
 - new major
 - New release 1.5.1
 
-* Sat Oct 02 2004 G�tz Waschk <waschk@linux-mandrake.com> 1.5-1mdk
+* Sat Oct 02 2004 Götz Waschk <waschk@linux-mandrake.com> 1.5-1mdk
 - new major 1.5
 - New release 1.5
 
-* Sat Jun 05 2004 G�tz Waschk <waschk@linux-mandrake.com> 1.4.1-4mdk
+* Sat Jun 05 2004 Götz Waschk <waschk@linux-mandrake.com> 1.4.1-4mdk
 - new g++
 - drop prefix
 
