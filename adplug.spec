@@ -7,7 +7,7 @@
 Summary: AdLib sound player library
 Name:    adplug
 Version: 2.2
-Release: 6
+Release: 7
 Source0: http://prdownloads.sourceforge.net/%name/%{name}-%{version}.tar.bz2
 Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
 URL: http://adplug.sourceforge.net/
