@@ -2,7 +2,7 @@
 %define major 0
 %define libname %mklibname %name %api %major
 %define develname %mklibname -d %name
-%define staticname %mklibname -s -d %name
+#define staticname %mklibname -s -d %name
 
 Summary: AdLib sound player library
 Name:    adplug
@@ -63,23 +63,6 @@ It supports various audio formats from MS-DOS AdLib trackers.
 This package contains the C++ headers and documentation required for
 building programs based on AdPlug.
 
-%package -n %staticname
-Group: Development/C++
-Summary: Static library of AdPlug
-Requires: %develname = %version
-Provides: libadplug-static-devel = %version-%release
-Obsoletes: %mklibname -s -d %name 2.1
-
-%description -n %staticname
-AdPlug is a free, multi-platform, hardware independent AdLib sound player
-library, mainly written in C++. AdPlug plays sound data, originally created
-for the AdLib (OPL2) audio board, on top of an OPL2 emulator or by using the
-real hardware. No OPL2 chip is required for playback.
-
-It supports various audio formats from MS-DOS AdLib trackers.
-
-This package contains the static library required for statically
-linking applications based on AdPlug.
 
 %prep
 %setup -q
@@ -117,8 +100,5 @@ chrpath -d %buildroot%_bindir/adplugdb
 %_infodir/libadplug.info*
 %_libdir/pkgconfig/*.pc
 
-%files -n %staticname
-%doc README
-#_libdir/*.a
 
 
