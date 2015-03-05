@@ -111,12 +111,14 @@ chrpath -d %buildroot%_bindir/adplugdb
 %_libdir/libadplug-%{api}.so.%{major}*
 
 %files -n %develname
+%doc README
 %_includedir/adplug/
 %_libdir/*.so
 %_infodir/libadplug.info*
 %_libdir/pkgconfig/*.pc
 
 %files -n %staticname
-%_libdir/*.a
+%doc README
+#_libdir/*.a
 
 
