@@ -69,8 +69,8 @@ building programs based on AdPlug.
 #perl -pi -e "s!/usr/local/share/adplug!%_datadir/%name!" doc/adplugdb.1
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 export CPPFLAGS="-I%_includedir/libbinio"
 %configure
 %make
@@ -86,8 +86,8 @@ export CPPFLAGS="-I%_includedir/libbinio"
 %doc README
 %_bindir/adplugdb
 %_mandir/man1/adplugdb.1*
-%dir %_datadir/%name/
-%_datadir/%name/adplug.db
+#dir #_datadir/%name/
+#_datadir/%name/adplug.db
 
 %files -n %libname
 %doc AUTHORS NEWS TODO COPYING
