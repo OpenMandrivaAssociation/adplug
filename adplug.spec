@@ -1,4 +1,4 @@
-%define api 2.3
+%define api 2.3.1
 %define major 0
 %define libname %mklibname %name %api %major
 %define develname %mklibname -d %name
@@ -91,7 +91,7 @@ export CPPFLAGS="-I%_includedir/libbinio"
 
 %files -n %libname
 %doc AUTHORS NEWS TODO COPYING
-#_libdir/libadplug-%{api}.so.%{major}*
+%_libdir/libadplug-%{api}.so.%{major}*
 
 %files -n %develname
 %doc README
