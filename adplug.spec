@@ -91,7 +91,7 @@ export CPPFLAGS="-I%_includedir/libbinio"
 
 %files -n %libname
 %doc AUTHORS NEWS TODO COPYING
-%_libdir/libadplug-%{api}.so.%{major}*
+#_libdir/libadplug-%{api}.so.%{major}*
 
 %files -n %develname
 %doc README
