@@ -1,4 +1,4 @@
-%define api 2.3.1
+%define api 2.3.3
 %define major 0
 %define libname %mklibname %name %api %major
 %define develname %mklibname -d %name
@@ -6,7 +6,7 @@
 
 Summary: AdLib sound player library
 Name:    adplug
-Version: 2.3.1
+Version: 2.3.3
 Release: 1
 Source0: https://github.com/adplug/adplug/releases/download/%{name}-%{version}/%{name}-%{version}.tar.bz2
 #Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
@@ -99,6 +99,3 @@ export CPPFLAGS="-I%_includedir/libbinio"
 %_libdir/*.so
 %_infodir/libadplug.info*
 %_libdir/pkgconfig/*.pc
-
-
-
