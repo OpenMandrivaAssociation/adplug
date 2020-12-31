@@ -16,9 +16,7 @@ Group: Sound
 
 BuildRequires: pkgconfig(libbinio)
 BuildRequires: chrpath
-BuildRequires: gcc-c++, gcc, gcc-cpp
-
-
+BuildRequires: texinfo
 
 
 %description
@@ -69,8 +67,6 @@ building programs based on AdPlug.
 #perl -pi -e "s!/usr/local/share/adplug!%_datadir/%name!" doc/adplugdb.1
 
 %build
-#export CC=gcc
-#export CXX=g++
 export CPPFLAGS="-I%_includedir/libbinio"
 %configure
 %make
