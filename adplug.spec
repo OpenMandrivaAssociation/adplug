@@ -10,7 +10,7 @@ Version: 2.3.3
 Release: 1
 Source0: https://github.com/adplug/adplug/releases/download/%{name}-%{version}/%{name}-%{version}.tar.bz2
 #Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
-URL: http://adplug.sourceforge.net/
+URL: https://adplug.sourceforge.net/
 License: LGPLv2+
 Group: Sound
 
