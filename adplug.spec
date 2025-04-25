@@ -1,15 +1,15 @@
-%define api 2.3.3
+%define api 2.4
 %define major 0
-%define libname %mklibname %name %api %major
+%define libname %mklibname %name
 %define develname %mklibname -d %name
 #define staticname %mklibname -s -d %name
 
 Summary: AdLib sound player library
 Name:    adplug
-Version: 2.3.3
+Version: 2.4
 Release: 1
 Source0: https://github.com/adplug/adplug/releases/download/%{name}-%{version}/%{name}-%{version}.tar.bz2
-#Source1: http://prdownloads.sourceforge.net/adplug/adplug.db.bz2
+Source1: https://github.com/adplug/database/raw/refs/heads/master/adplug.db
 URL: https://adplug.sourceforge.net/
 License: LGPLv2+
 Group: Sound
@@ -63,27 +63,24 @@ building programs based on AdPlug.
 
 
 %prep
-%setup -q
-#perl -pi -e "s!/usr/local/share/adplug!%_datadir/%name!" doc/adplugdb.1
+%autosetup -p1
 
 %build
 export CPPFLAGS="-I%_includedir/libbinio"
 %configure
-%make
+%make_build
 
 %install
-%makeinstall_std
-#mkdir -p %buildroot%_datadir/%name
-#bzcat %SOURCE1 > %buildroot%_datadir/%name/adplug.db
-#chrpath -d %buildroot%_bindir/adplugdb
-
+%make_install
+mkdir -p %buildroot%_datadir/%name
+cp %{S:1} %buildroot%_datadir/%name/adplug.db
 
 %files
 %doc README
 %_bindir/adplugdb
 %_mandir/man1/adplugdb.1*
-#dir #_datadir/%name/
-#_datadir/%name/adplug.db
+%dir %_datadir/%name/
+%_datadir/%name/adplug.db
 
 %files -n %libname
 %doc AUTHORS NEWS TODO COPYING
