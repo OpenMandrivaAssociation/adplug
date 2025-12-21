@@ -14,6 +14,11 @@ URL: https://adplug.sourceforge.net/
 License: LGPLv2+
 Group: Sound
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: pkgconfig(libbinio)
 BuildRequires: chrpath
 BuildRequires: texinfo
